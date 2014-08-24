@@ -34,19 +34,19 @@ Add user rsync
 
 .. code-block:: bash
 
-    useradd rsync
+    sudo useradd rsync
 
 Change permission of /etc/rsyncd.scrt to 0600 
 
 .. code-block:: bash
 
-    chmod 0600 /etc/rsyncd.scrt
+    sudo chmod 0600 /etc/rsyncd.scrt
 
 Start rsync as daemon service 
 
 .. code-block:: bash
 
-    rsync --daemon 
+    sudo rsync --daemon 
 
 
 
@@ -65,8 +65,8 @@ Change owner and permission of /etc/rsync-jira.password
 
 .. code-block:: bash
 
-    chown jira /etc/rsync-jira.password
-    chmod 0600 /etc/rsync-jira.password
+    sudo chown jira /etc/rsync-jira.password
+    sudo chmod 0600 /etc/rsync-jira.password
 
 Add filter for rsync /etc/rsync-jiradata.filter
 
@@ -85,13 +85,13 @@ Only allow user jira to /etc/rsync-jiradata.filter
 
 .. code-block:: bash
 
-    chmod 0600 /etc/rsync-jiradata.filter
+    sudo chmod 0600 /etc/rsync-jiradata.filter
 
 Add a cron job for user jira 
 
 .. code-block:: bash
 
-    vim /etc/cron.d/jira
+    sudo vim /etc/cron.d/jira
 
     # Add cron job to run every five minutes
     */5 * * * * jira /usr/bin/rsync -vzrtopg --delete \

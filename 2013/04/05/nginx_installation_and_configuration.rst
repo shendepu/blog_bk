@@ -7,7 +7,7 @@ Installation
 
 .. code-block:: bash
 
-    ./configure --sbin-path=/usr/local/nginx/nginx \
+    sudo ./configure --sbin-path=/usr/local/nginx/nginx \
 	    	--conf-path=/usr/local/nginx/nginx.conf \
 	    	--pid-path=/var/run/nginx.pid \
 	    	--error-log-path=/var/log/nginx/error.log \
@@ -18,6 +18,8 @@ Installation
 	    	--with-pcre=../pcre-8.35 \
 	    	--with-zlib=../zlib-1.2.8 \
 	    	--with-openssl=../openssl-1.0.1h
+
+    sudo make && make install 
 
 
 Configuration

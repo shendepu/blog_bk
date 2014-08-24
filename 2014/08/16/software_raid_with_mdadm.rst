@@ -21,7 +21,7 @@ mdadm (cat /proc/mdstat) 显示需耗时270分钟恢复，平均速度125M/s。 
 结论：2T硬盘RAID 1恢复总耗时需579分钟，近10个小时。
 
 .. image:: /_static/img/data/software_raid_with_mdadm_build_result.png
-   :scale: 60 %
+   :scale: 60%
    :alt: mdadm raid recovery test result
 
 

@@ -10,31 +10,52 @@ Controller Node
 
 .. code-block:: bash
 
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 80 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 443 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 873 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 3306 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 35357 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 3260 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 5000 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 5672 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 6080 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 6081 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 6082 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8773 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8774 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8775 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8776 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9191 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9292 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9696 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 1111 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 5353 -j ACCEPT
-    iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9697 -j ACCEPT 
-    iptables -I INPUT 4 -p udp --dport 67:68 -j ACCEPT
-    iptables -I INPUT 4 -p udp -m udp --dport 53 -j ACCEPT
-    iptables -I INPUT 4 -p tcp -m tcp --dport 53 -j ACCEPT
-    iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 80 \ 
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 443 \ 
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 873 \ 
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 3306 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 35357 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 3260 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 5000 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 5672 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 6080 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 6081 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 6082 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8773 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8774 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8775 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 8776 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9191 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9292 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9696 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 1111 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 5353 \
+                    -j ACCEPT
+    sudo iptables -I INPUT 4 -d 192.168.0.11 -p tcp -m tcp --dport 9697 \
+                    -j ACCEPT 
+    sudo iptables -I INPUT 4 -p udp --dport 67:68 -j ACCEPT
+    sudo iptables -I INPUT 4 -p udp -m udp --dport 53 -j ACCEPT
+    sudo iptables -I INPUT 4 -p tcp -m tcp --dport 53 -j ACCEPT
+    sudo iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 
 Compute Node
@@ -42,7 +63,8 @@ Compute Node
 
 .. code-block:: bash
 
-  	iptables -I INPUT 4 -p tcp -m tcp -d 192.168.0.31 --dport 5900:5999 -j ACCEPT
+  	sudo iptables -I INPUT 4 -p tcp -m tcp -d 192.168.0.31 \
+                    --dport 5900:5999 -j ACCEPT
 
 
 

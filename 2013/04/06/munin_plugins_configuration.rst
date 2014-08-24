@@ -7,7 +7,7 @@ MySQL Configuration
 .. code-block:: bash
 
     # Install necessary perl packages 
-    yum -y install perl-Cache-Cache
+    sudo yum -y install perl-Cache-Cache
 
     # Add symbolic link for mysql plugin 
     sudo ln -s /usr/share/munin/plugins/mysql_ mysql_bin_relay_log
@@ -58,7 +58,7 @@ Test plugin
 .. code-block:: bash
 
     cd /etc/munin/plugins
-    munin-run mysql_connections
+    sudo munin-run mysql_connections
 
 
 
@@ -68,14 +68,14 @@ Temperature Sencors Configuration
 .. code-block:: bash
 
     # Install package
-    yum -y install lm_sensors 
+    sudo yum -y install lm_sensors 
 
     # Add symbolic link 
     sudo ln -s /usr/share/munin/plugins/sensors_ sensors_temp
 
     # Test plugin
     cd /etc/munin/plugins
-    munin-run sensors_temp
+    sudo munin-run sensors_temp
 
 
 Diskstats Inlcusion or Exclusion Configuration

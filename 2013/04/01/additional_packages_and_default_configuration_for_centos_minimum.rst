@@ -9,7 +9,7 @@ Packages for system tools
 
 .. code-block:: bash
 
-    yum -y install net-tools telnet traceroute lsof yum-utils deltarpm \
+    sudo yum -y install net-tools telnet traceroute lsof yum-utils deltarpm \
            vim-enhanced mlocate rng-tools
 
 
@@ -18,8 +18,15 @@ Optional Packages
 
 .. code-block:: bash
 
-    yum -y install munin-node
+    sudo yum -y install munin-node
 
+
+Development Tools
+^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    sudo yum groupinstall "Development Tools" 
 
 Default Configuration for Linux
 -------------------------------
@@ -37,8 +44,8 @@ Add entropy in Linux
     EXTRAOPTIONS="-r /dev/urandom"
 
     # After install rng-tools, start rngd service
-    service rngd start
-    chkconfig rngd on
+    sudo service rngd start
+    sudo chkconfig rngd on
 
 
 Change System Timezone
@@ -48,18 +55,20 @@ Change System Timezone
 
     # Make a backup first. It's always is a good practice to make backup 
     # of orginal config files.
-    mv /etc/localtime /etc/localtime.bak
+    sudo mv /etc/localtime /etc/localtime.bak
 
-    ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 
 Increse ulimit
 ^^^^^^^^^^^^^^
 
-Edit /etc/security/limit.conf
+Edit /etc/security/limits.conf
 
 .. code-block:: ini
 
+    sudo vim /etc/security/limits.conf
+    
     # Increase allowed open files 
     *	soft	nofile	65535
     *	hard	nofile	65535

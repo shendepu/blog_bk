@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/08/25/yaml_cheat_sheet
    2014/08/19/Combination_of_Openstack_Cinder_and_Docker
    2014/08/16/software_raid_with_mdadm
    2014/08/12/openstack_configurations 
@@ -12,6 +13,7 @@ Sitemap
    2013/04/12/rsync_configuration_guide
    2013/04/08/mysql_mariadb_installation_and_configuration
    2013/04/06/munin_plugins_configuration
+   2013/04/05/nginx_server_best_security_practices
    2013/04/05/nginx_installation_and_configuration
    2013/04/03/confluence_installation_and_configuration_guide
    2013/04/03/jira_installation_and_configuration_guide

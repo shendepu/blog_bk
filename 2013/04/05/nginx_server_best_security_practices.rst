@@ -718,11 +718,11 @@ PHP is one of the popular server side scripting language. Edit /etc/php.ini as f
 
 See also:
 
-* `PHP Security: Limit Resources Used By Script`_ 
-* `PHP.INI settings: Disable exec, shell_exec, system, popen and Other Functions To Improve Security`_  
+* `PHP Security Limit Resources Used By Script`_ 
+* `PHP.INI settings Disable exec, shell_exec, system, popen and Other Functions To Improve Security`_  
 
-.. _PHP Security: Limit Resources Used By Script: http://www.cyberciti.biz/faq/php-resources-limits/ 
-.. _PHP.INI settings: Disable exec, shell_exec, system, popen and Other Functions To Improve Security: http://www.cyberciti.biz/faq/linux-unix-apache-lighttpd-phpini-disable-functions/
+.. _PHP Security Limit Resources Used By Script: http://www.cyberciti.biz/faq/php-resources-limits/ 
+.. _PHP.INI settings Disable exec, shell_exec, system, popen and Other Functions To Improve Security: http://www.cyberciti.biz/faq/linux-unix-apache-lighttpd-phpini-disable-functions/
 
 #17: Run Nginx In A Chroot Jail (Containers) If Possible
 --------------------------------------------------------

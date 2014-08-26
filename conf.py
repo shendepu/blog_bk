@@ -8,13 +8,13 @@ import tinkerer.paths
 # **************************************************************
 
 # Change this to the name of your blog
-project = 'My blog'
+project = 'LimeBean blog'
 
 # Change this to the tagline of your blog
-tagline = 'Add intelligent tagline here'
+tagline = 'Blog on software development and infrastructure operation'
 
 # Change this to the description of your blog
-description = 'This is an awesome blog'
+description = 'This is lime bean blog that blogs software develpment and infrastructure operations, see more on http://blog.limebean.net'
 
 # Change this to your name
 author = 'Jimmy Shen'

@@ -8,7 +8,7 @@ import tinkerer.paths
 # **************************************************************
 
 # Change this to the name of your blog
-project = 'LimeBean blog'
+project = 'Lime Bean'
 
 # Change this to the tagline of your blog
 tagline = 'Blog on software development and infrastructure operation'
@@ -36,7 +36,7 @@ disqus_shortname = 'limebeanblog'
 html_favicon = 'limebean.ico'
 
 # Pick another Tinkerer theme or use your own
-html_theme = "flat_new"
+html_theme = "flat"
 
 # Theme-specific options, see docs
 html_theme_options = { }

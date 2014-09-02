@@ -30,49 +30,60 @@ nginx.conf
 .. code-block:: nginx
 
     user  nginx;
-	worker_processes  4;
+    worker_processes  4;
 
-	error_log  logs/error.log;
+    error_log  logs/error.log;
 
-	pid        logs/nginx.pid;
+    pid        logs/nginx.pid;
 
-	events {
-	    worker_connections 	65535;
-	}
+    events {
+        worker_connections 	65535;
+    }
 
-	http {
-	    include       mime.types;
-	    default_type  application/octet-stream;
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
 
-	    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-	                      '$status $body_bytes_sent "$http_referer" '
-	                      '"$http_user_agent" "$http_x_forwarded_for"';
-	    access_log  logs/access.log  main;
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+        access_log  logs/access.log  main;
 
-	    sendfile        on;
-	    #tcp_nopush     on;
-	    client_max_body_size 1000m;
-	    keepalive_timeout  10;
-	    gzip  on;
-	    ssl_session_cache	shared:SSL:20m;
-	    ssl_session_timeout	10m;
+        sendfile        on;
+        #tcp_nopush     on;
+        client_max_body_size 1000m;
+        keepalive_timeout  10;
 
-	    #fastcgi_cache_path /usr/local/nginx/fastcgi_cache 
-	    #                   levels=1:2 keys_zone=TEST:10m inactive=5m;    
-	    #fastcgi_connect_timeout 300;    
-	    #fastcgi_send_timeout 300;    
-	    #fastcgi_read_timeout 300;    
-	    #fastcgi_buffer_size 64k;    
-	    #fastcgi_buffers 4 64k;    
-	    #fastcgi_busy_buffers_size 128k;    
-	    #fastcgi_temp_file_write_size 128k;    
-	    #fastcgi_cache TEST;    
-	    #fastcgi_cache_valid 200 302 1h;    
-	    #fastcgi_cache_valid 301 1d;    
-	    #fastcgi_cache_valid any 1m;
- 
-	    include conf/bizforce-monitor.conf; 
-	}
+        gzip  on;
+        gzip_min_length 1100;
+        gzip_buffers    4   32k;
+        gzip_types      text/plain text/css application/json 
+                        application/javascript application/x-javascript 
+                        text/javascript application/xml application/font-woff 
+                        application/rss+xml application/atom+xml 
+                        application/rdf+xml;
+        gzip_vary on;
+
+        ssl_session_cache	shared:SSL:20m;
+        ssl_session_timeout	10m;
+
+        #fastcgi_cache_path /usr/local/nginx/fastcgi_cache 
+        #                   levels=1:2 keys_zone=TEST:10m inactive=5m;    
+        #fastcgi_connect_timeout 300;    
+        #fastcgi_send_timeout 300;    
+        #fastcgi_read_timeout 300;    
+        #fastcgi_buffer_size 64k;    
+        #fastcgi_buffers 4 64k;    
+        #fastcgi_busy_buffers_size 128k;    
+        #fastcgi_temp_file_write_size 128k;    
+        #fastcgi_cache TEST;    
+        #fastcgi_cache_valid 200 302 1h;    
+        #fastcgi_cache_valid 301 1d;    
+        #fastcgi_cache_valid any 1m;
+
+        include conf/bizforce-monitor.conf; 
+    }
+
 
 bizforce-monitor.conf: Nginx status，Munin及Nagios配置：
 

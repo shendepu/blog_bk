@@ -13,8 +13,9 @@ True Expressions vs False Expression
 In Perl every expression is considered **true** except for the following three cases:
 
 1. The number 0.
-2. The empty string ("").
-3. A special value called undef. This is the default value of every variable that was not initialized before it was accessed.
+2. The empty string (""), string '0'.
+3. empty list ()
+4. A special value called undef. This is the default value of every variable that was not initialized before it was accessed.
 
 Operators
 ----------
@@ -226,6 +227,15 @@ Quote and Quote-like Operators
 +-----------+---------+-----------------+--------------+
 
 \* unless the delimiter is ''.
+
+
+
+
+
+
+
+
+
 
 Variables
 ---------
@@ -620,13 +630,60 @@ Input
 
 
 
-Statement
+Statement 
 ---------
 
 1. ``if () {} elseif () {} else {}``
 2. ``while () {}``
 3. ``last``, ``next``
 4. ``for(row = 1 ; $row <= 10; $row++) { }``
+
+
+Statement Modifiers
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: perl
+
+    if EXPR
+    unless EXPR
+    while EXPR
+    until EXPR
+    for LIST
+    foreach LIST
+    when EXPR
+
+Compound Statements
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: perl
+
+    if (EXPR) BLOCK
+    if (EXPR) BLOCK else BLOCK
+    if (EXPR) BLOCK elsif (EXPR) BLOCK ...
+    if (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
+    unless (EXPR) BLOCK
+    unless (EXPR) BLOCK else BLOCK
+    unless (EXPR) BLOCK elsif (EXPR) BLOCK ...
+    unless (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
+    given (EXPR) BLOCK
+    LABEL while (EXPR) BLOCK
+    LABEL while (EXPR) BLOCK continue BLOCK
+    LABEL until (EXPR) BLOCK
+    LABEL until (EXPR) BLOCK continue BLOCK
+    LABEL for (EXPR; EXPR; EXPR) BLOCK
+    LABEL for VAR (LIST) BLOCK
+    LABEL for VAR (LIST) BLOCK continue BLOCK
+    LABEL foreach (EXPR; EXPR; EXPR) BLOCK
+    LABEL foreach VAR (LIST) BLOCK
+    LABEL foreach VAR (LIST) BLOCK continue BLOCK
+    LABEL BLOCK
+    LABEL BLOCK continue BLOCK
+    PHASE BLOCK
+
+
+
+
+
 
 
 
@@ -785,7 +842,119 @@ Modifier
     $string =~ s/^([A-Za-z]+)/length($1)/e;
 
 
+PODs: Embedded Documentation
+----------------------------
 
+Command Paragraph
+^^^^^^^^^^^^^^^^^
+
+:: 
+
+    =pod
+    =head1 Heading Text
+    =head2 Heading Text
+    =head3 Heading Text
+    =head4 Heading Text
+    =over indentlevel
+    =item stuff
+    =back
+    =begin format
+    =end format
+    =for format text...
+    =encoding type
+    =cut
+
+
+Formatting Codes
+^^^^^^^^^^^^^^^^
+
+* I<text> -- italic text
+
+    Used for emphasis ("be I<careful!> ") and parameters ("redo I<LABEL> ")
+
+* B<text> -- bold text
+
+    Used for switches ("perl's B<-n> switch "), programs ("some systems provide a B<chfn> for that "), emphasis ("be B<careful!> "), and so on ("and that feature is known as B<autovivification> ").
+
+* C<code> -- code text
+
+    Renders code in a typewriter font, or gives some other indication that this represents program text ("C<gmtime($^T)> ") or some other form of computerese ("C<drwxr-xr-x> ").
+
+* L<name> -- a hyperlink
+
+    There are various syntaxes, listed below. In the syntaxes given, text , name , and section cannot contain the characters '/' and '|'; and any '<' or '>' should be matched.
+
+    - L<name>
+    
+        Link to a Perl manual page (e.g., L<Net::Ping> ). Note that name should not contain spaces. This syntax is also occasionally used for references to Unix man pages, as in L<crontab(5)> .
+
+    - L<name/"sec"> or L<name/sec>
+
+        Link to a section in other manual page. E.g., L<perlsyn/"For Loops">
+
+    - L</"sec"> or L</sec>
+
+        Link to a section in this manual page. E.g., L</"Object Methods">
+
+    A section is started by the named heading or item. For example, L<perlvar/$.> or L<perlvar/"$."> both link to the section started by "=item $. " in perlvar. And L<perlsyn/For Loops> or L<perlsyn/"For Loops"> both link to the section started by "=head2 For Loops " in perlsyn.
+
+    To control what text is used for display, you use "L<text|...>", as in:
+
+    - L<text|name>
+    
+        Link this text to that manual page. E.g., L<Perl Error Messages|perldiag>
+
+    - L<text|name/"sec"> or L<text|name/sec>
+
+        Link this text to that section in that manual page. E.g., L<postfix "if"\|perlsyn/"Statement Modifiers">
+
+    - L<text|/"sec"> or L<text|/sec> or L<text|"sec">
+    
+        Link this text to that section in this manual page. E.g., L<the various attributes|/"Member Data">
+
+    Or you can link to a web page:
+
+    - L<scheme:...>
+    - L<text|scheme:...>
+
+        Links to an absolute URL. For example, L<http://www.perl.org/> or L<The Perl Home Page|http://www.perl.org/>.
+
+* E<escape> -- a character escape
+    
+    Very similar to HTML/XML &foo; "entity references":
+
+    - E<lt> -- a literal < (less than)
+    - E<gt> -- a literal > (greater than)
+    - E<verbar> -- a literal | (vertical bar)
+    - E<sol> -- a literal / (solidus)
+
+        The above four are optional except in other formatting codes, notably L<...> , and when preceded by a capital letter.
+
+    - E<htmlname>
+        
+        Some non-numeric HTML entity name, such as E<eacute> , meaning the same thing as &eacute; in HTML -- i.e., a lowercase e with an acute (/-shaped) accent.
+
+    - E<number>
+
+        The ASCII/Latin-1/Unicode character with that number. A leading "0x" means that number is hex, as in E<0x201E> . A leading "0" means that number is octal, as in E<075> . Otherwise number is interpreted as being in decimal, as in E<181> .
+
+        Note that older Pod formatters might not recognize octal or hex numeric escapes, and that many formatters cannot reliably render characters above 255. (Some formatters may even have to use compromised renderings of Latin-1 characters, like rendering E<eacute> as just a plain "e".)
+
+* F<filename> -- used for filenames
+
+    Typically displayed in italics. Example: "F<.cshrc> "
+
+* S<text> -- text contains non-breaking spaces
+
+    This means that the words in text should not be broken across lines. Example: S<$x ? $y : $z> .
+
+* X<topic name> -- an index entry
+
+    This is ignored by most formatters, but some may use it for building indexes. It always renders as empty-string. Example: X<absolutizing relative URLs>
+
+* Z<> -- a null (zero-effect) formatting code
+
+    This is rarely used. It's one way to get around using an E<...> code sometimes. For example, instead of "NE<lt>3" (for "N<3") you could write "NZ<><3 " (the "Z<>" breaks up the "N" and the "<" so they can't be considered the part of a (fictitious) "N<...>" code).
 
 
 

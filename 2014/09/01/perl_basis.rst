@@ -842,6 +842,32 @@ Modifier
     $string =~ s/^([A-Za-z]+)/length($1)/e;
 
 
+
+Referencing
+-----------
+
+``*foo = *bar`` makes the typeglobs themselves synonymous while ``*foo = \$bar`` makes the SCALAR portions of two distinct typeglobs refer to the same scalar value. This means that the following code:
+
+.. code-block:: perl
+
+    $bar = 1;
+    *foo = \$bar;       # Make $foo an alias for $bar
+    {
+        local $bar = 2; # Restrict changes to block
+        print $foo;     # Prints '1'!
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 PODs: Embedded Documentation
 ----------------------------
 
@@ -955,6 +981,12 @@ Formatting Codes
 * Z<> -- a null (zero-effect) formatting code
 
     This is rarely used. It's one way to get around using an E<...> code sometimes. For example, instead of "NE<lt>3" (for "N<3") you could write "NZ<><3 " (the "Z<>" breaks up the "N" and the "<" so they can't be considered the part of a (fictitious) "N<...>" code).
+
+
+
+
+
+
 
 
 

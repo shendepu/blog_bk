@@ -30,7 +30,7 @@ website = 'https://blog.limebean.net/'
 # **************************************************************
 
 # Add your Disqus shortname to enable comments powered by Disqus
-disqus_shortname = 'limebeanblog'
+disqus_shortname = 'limebeanbloghttps'
 
 # Change your favicon (new favicon goes in _static directory)
 html_favicon = 'limebean.ico'

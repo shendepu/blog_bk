@@ -23,7 +23,7 @@ author = 'Jimmy Shen'
 copyright = '2014, ' + author
 
 # Change this to your blog root URL (required for RSS feed)
-website = 'http://blog.limebean.net/'
+website = 'https://blog.limebean.net/'
 
 # **************************************************************
 # More tweaks you can do

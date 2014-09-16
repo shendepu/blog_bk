@@ -14,7 +14,7 @@ project = 'Lime Bean'
 tagline = 'Blog on software development and infrastructure operation'
 
 # Change this to the description of your blog
-description = 'This is lime bean blog that blogs software develpment and infrastructure operations, see more on http://blog.limebean.net'
+description = 'This is lime bean blog that blogs software develpment and infrastructure operations, see more on https://blog.limebean.net'
 
 # Change this to your name
 author = 'Jimmy Shen'

@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/10/09/set_up_natural_scrolling_for_a_mouse_in_fedora
    2014/09/09/eclipse_perl_development_environment
    2014/09/01/perl_basis
    2014/08/26/useful_linux_command_alias

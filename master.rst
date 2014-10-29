@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/10/29/ubuntu_change_keyboard_layout
    2014/10/20/git_send_email_configuration_on_mac_and_linux
    2014/10/09/set_up_natural_scrolling_for_a_mouse_in_fedora
    2014/09/09/eclipse_perl_development_environment
